@@ -5,9 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js" defer></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/45b328020b.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
 </head>
 <body>
-    
+    <form class="location-form">
+        <div class="search-container">
+            <button class="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="text" id="search" placeholder="City Name">
+        </div>
+    </form>
+    <div class="weather-container">
+        <h1 class="city-name">Melbourne, AU</h1>
+        <div class="weather-data"> 
+            <span class="weather">light rain</span>
+            <div class="temp-data">
+                <span class="temperature">16C</span>
+                <div class="temp-min-max">
+                    <div class="temp-min-container">
+                        <span>↓</span>
+                        <span class="temp-min">12</span>
+                    </div>
+                    <div class="temp-max-container">
+                        <span>↑</span>
+                        <span class="temp-max">14</span>
+                    </div>
+                </div>
+                <div class="unit-switch">
+                    <input type="checkbox" name="switch" id="switch">
+                    <label for="switch"></label>
+                </div>
+                <span class="unit">°F / °C</span>
+            </div>
+        </div>
+    </div>
+    <div class="background-container">
+        <a href="https://www.pexels.com">Background provided by Pexels</a>
+        <img class="background-image" src="https://images.pexels.com/photos/2028885/pexels-photo-2028885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> 
+    </div>
 </body>
 </html>
