@@ -1,5 +1,3 @@
-import { getBackgroundData } from "./background";
-
 const cityName = document.querySelector('.city-name');
 const temperature = document.querySelector('.temperature');
 const tempMin = document.querySelector('.temp-min');
@@ -16,7 +14,7 @@ const changeUnit = (temp) => {
     }
 }
 
-const changeTempSymbol = () => {
+export const changeTempSymbol = () => {
     return (unitSwitch.checked ? "°F" : "°C");
 }
 
@@ -28,8 +26,7 @@ const fetchWeatherData = async (location) => {
     }
     catch (err) {
 		return;
-    }
-    
+    }  
 }
 
 const sortWeatherData = (weatherData) => {
@@ -46,38 +43,35 @@ const sortWeatherData = (weatherData) => {
     return tempData;
 }
 
-const displayWeatherData = async (data, symbol) => {
-    try {
-        cityName.innerText = data.city;
-        weather.innerText = data.weather;
-        temperature.innerText = `${Math.floor(changeUnit(data.temp))} ${symbol}`;
-        tempMin.innerText = `${Math.floor(changeUnit(data.minTemp))} ${symbol}`;
-        tempMax.innerText = `${Math.floor(changeUnit(data.maxTemp))} ${symbol}`;
-    }
-    catch (err) {
-		alert ("Please enter a valid city name.");
-        return;
-    }
+export const displayWeatherData = (data, symbol) => {
+    cityName.innerText = data.city;
+    weather.innerText = data.weather;
+    temperature.innerText = `${Math.floor(changeUnit(data.temp))} ${symbol}`;
+    tempMin.innerText = `${Math.floor(changeUnit(data.minTemp))} ${symbol}`;
+    tempMax.innerText = `${Math.floor(changeUnit(data.maxTemp))} ${symbol}`;
 }
 
 export const fetchAndSortWeatherData = async (location) => {
-    const searchWeatherData = await fetchWeatherData(location);
-    const sortedData = sortWeatherData(searchWeatherData);
-    return sortedData;
-}
-
-export const displayWeatherAndBackground = async (location) => {
-    const sortedData = await fetchAndSortWeatherData(location);
-    const symbol = changeTempSymbol();
-    displayWeatherData(sortedData, symbol);
-    getBackgroundData(sortedData);
+    try {
+        const searchWeatherData = await fetchWeatherData(location);
+        const sortedData = sortWeatherData(searchWeatherData);
+        return sortedData;
+    }
+    catch (err) {
+		return;
+    }
 }
 
 export const activateUnitSwitch = () => {
     document.getElementById("unit-switch").addEventListener("click", async () => {
-        const location = document.querySelector('.city-name').innerText;
-        const sortedData = await fetchAndSortWeatherData(location);
-        const symbol = changeTempSymbol();
-        displayWeatherData(sortedData, symbol);
+        try {
+            const location = document.querySelector('.city-name').innerText;
+            const sortedData = await fetchAndSortWeatherData(location);
+            const symbol = changeTempSymbol();
+            displayWeatherData(sortedData, symbol);
+        }
+        catch (err) {
+            return;
+        }  
     });
 }
