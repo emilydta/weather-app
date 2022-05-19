@@ -55,14 +55,14 @@ body {
     
 }
 
-.submit {
+#submit {
     border: none;
     border-radius: 10px;
     padding-left: 1em;
     cursor: pointer;
 }
 
-.search-container, .submit, #search {
+.search-container, #submit, #search {
     background-color: white;
     opacity: 70%;
 }
@@ -118,7 +118,7 @@ input[type="checkbox"] {
   }
   
 
-.unit-switch {
+.unit-switch-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,5 +164,9 @@ input:checked + label:after {
     font-size: 1.5rem;
 }
   
-  
+#attribution {
+    position: absolute;
+    z-index: 10;
+    color: white;
+}
   

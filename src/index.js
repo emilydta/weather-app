@@ -1,12 +1,21 @@
 import './style.css';
-import { displayWeatherData, eventListeners } from './modules/generateWeather';
+import { displayWeatherData, activateUnitSwitch } from './modules/generateWeather';
 import { createBackground } from './modules/background';
+import { searchFunction } from './modules/searchFeature';
 
-//createBackground();
-
-     
+createBackground("melbourne, au");     
 displayWeatherData("melbourne, au");
-eventListeners();
+searchFunction();
+activateUnitSwitch();
+
+
+
+
+
+
+
+
+
 
 
 
