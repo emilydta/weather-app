@@ -1,8 +1,8 @@
-let cityName = document.querySelector('.city-name');
-let temperature = document.querySelector('.temperature');
-let tempMin = document.querySelector('.temp-min');
-let tempMax = document.querySelector('.temp-max');
-let weather = document.querySelector('.weather');
+const cityName = document.querySelector('.city-name');
+const temperature = document.querySelector('.temperature');
+const tempMin = document.querySelector('.temp-min');
+const tempMax = document.querySelector('.temp-max');
+const weather = document.querySelector('.weather');
 const unitSwitch = document.getElementById('switch');
 
 const changeUnit = (temp) => {
@@ -18,14 +18,15 @@ const changeTempSymbol = () => {
     return (unitSwitch.checked ? "°F" : "°C");
 }
 
-export const fetchWeatherData = async (location) => {
+const fetchWeatherData = async (location) => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=7c75eecbdb2e509cfc5858fb61aa0fc5`, {mode: 'cors'});
         const weatherData = await response.json();
         return weatherData
     }
-    catch (error) {
-		console.log(error);
+    catch (err) {
+		console.error(err.message);
+        throw new Error(err);
     }
     
 }
@@ -42,10 +43,10 @@ export const sortWeatherData = async (location) => {
         }
         return tempData;
     }
-    catch (error) {
-		console.log(error);
+    catch (err) {
+		console.error(err.message);
+        throw new Error(err);
     }
-    
 }
 
 export const displayWeatherData = async (location) => {
@@ -58,28 +59,20 @@ export const displayWeatherData = async (location) => {
         tempMin.innerText = `${Math.floor(changeUnit(data.minTemp))} ${symbol}`;
         tempMax.innerText = `${Math.floor(changeUnit(data.maxTemp))} ${symbol}`;
     }
-    catch (error) {
-		console.log(error);
+    catch (err) {
+		console.error(err.message);
+        throw new Error(err);
     }
 }
 
-export const eventListeners = () => {
-    document.addEventListener("click", (e) => {
-        console.log(e.target.id)
-        // if (e.target.tagName == "LABEL") {
-        //     const location = new Promise((resolve, reject) => {
-        //         setTimeout(() => {
-        //           resolve(document.querySelector('.city-name').innerText);
-        //         }, 300);
-        //       })
-        //       .then(displayWeatherData(location));
-        // }
-        if (e.target.id == "submit") {
-            displayWeatherData("sydney");
-            //createBackground();
-        }
+export const activateUnitSwitch = () => {
+    document.getElementById("unit-switch").addEventListener("click", () => {
+        const location = document.querySelector('.city-name').innerText;
+        displayWeatherData(location);
     });
 }
 
 
 
+            
+   
