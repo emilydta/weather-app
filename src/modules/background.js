@@ -14,7 +14,6 @@ export const createBackground = async (location) => {
     return img.src = images.photos[index].src.original; 
   }
   catch (err) {
-		console.error(err.message);
-        throw new Error(err);
+		return;
     }    
 }
