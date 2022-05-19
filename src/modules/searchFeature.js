@@ -1,19 +1,22 @@
-import { displayWeatherData } from "./generateWeather";
-import { createBackground } from "./background";
+import { displayWeatherAndBackground } from "./weatherFunctions";
 
 export const searchFunction = () => {
     const search = document.getElementById('search');
     const submit = document.getElementById('submit');
 
     submit.addEventListener("click", () => {
-        createBackground(search.value);
-        displayWeatherData(search.value);
+        if (!search.value) {
+            return;
+        }
+        displayWeatherAndBackground(search.value);
     });
 
     window.addEventListener('keydown', (e) => {
         if (e.code === "Enter") {
-            createBackground(search.value);
-            displayWeatherData(search.value);
+            if (!search.value) {
+                return;
+            }
+            displayWeatherAndBackground(search.value);
         }
     });
 

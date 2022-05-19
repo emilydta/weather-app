@@ -1,9 +1,6 @@
-import { sortWeatherData } from "./generateWeather";
-
-export const createBackground = async (location) => {
+export const getBackgroundData = async (data) => {
   try {
     const img = document.querySelector('.background-image');
-    const data = await sortWeatherData(location);
     const response = await fetch(`https://api.pexels.com/v1/search?query=${data.weather}&per_page=2`, 
     {headers: {
       Authorization: 
