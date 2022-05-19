@@ -46,9 +46,8 @@ const sortWeatherData = (weatherData) => {
     return tempData;
 }
 
-const displayWeatherData = async (data) => {
+const displayWeatherData = async (data, symbol) => {
     try {
-        const symbol = changeTempSymbol();
         cityName.innerText = data.city;
         weather.innerText = data.weather;
         temperature.innerText = `${Math.floor(changeUnit(data.temp))} ${symbol}`;
@@ -69,7 +68,8 @@ export const fetchAndSortWeatherData = async (location) => {
 
 export const displayWeatherAndBackground = async (location) => {
     const sortedData = await fetchAndSortWeatherData(location);
-    displayWeatherData(sortedData);
+    const symbol = changeTempSymbol();
+    displayWeatherData(sortedData, symbol);
     getBackgroundData(sortedData);
 }
 
@@ -77,6 +77,7 @@ export const activateUnitSwitch = () => {
     document.getElementById("unit-switch").addEventListener("click", async () => {
         const location = document.querySelector('.city-name').innerText;
         const sortedData = await fetchAndSortWeatherData(location);
-        displayWeatherData(sortedData);
+        const symbol = changeTempSymbol();
+        displayWeatherData(sortedData, symbol);
     });
 }
