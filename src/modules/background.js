@@ -11,7 +11,7 @@ export const createBackground = async (location) => {
     }});
     const images = await response.json();
     let index = Math.floor(Math.random() * images.photos.length);
-    return img.src = images.photos[index].src.landscape; 
+    return img.src = images.photos[index].src.original; 
   }
   catch (err) {
 		console.error(err.message);
