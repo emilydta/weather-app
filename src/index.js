@@ -1,6 +1,7 @@
 import './style.css';
-import { displayWeatherAndBackground, activateUnitSwitch} from './modules/weatherFunctions';
+import { activateUnitSwitch} from './modules/weatherFunctions';
 import { searchFunction } from './modules/searchFeature';
+import { displayWeatherAndBackground } from './modules/display';
 
 
 displayWeatherAndBackground("melbourne, au");     

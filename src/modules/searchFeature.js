@@ -1,4 +1,4 @@
-import { displayWeatherAndBackground } from "./weatherFunctions";
+import { displayWeatherAndBackground } from "./display";
 
 export const searchFunction = () => {
     const search = document.getElementById('search');
