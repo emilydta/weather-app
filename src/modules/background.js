@@ -1,15 +1,20 @@
+import { sortWeatherData } from "./generateWeather";
 
-
-const createBackground = (weather) => {
+export const createBackground = async (location) => {
+  try {
     const img = document.querySelector('.background-image');
-    fetch(`https://api.pexels.com/v1/search?query=${weather}&per_page=3`, {mode: 'cors'})
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(response) {
-          let index = Math.floor(Math.random() * response.photos.length);
-          return img.src = response.photos[index].src.original;
-        });
+    const data = await sortWeatherData(location);
+    const response = await fetch(`https://api.pexels.com/v1/search?query=${data.weather}&per_page=2`, 
+    {headers: {
+      Authorization: 
+      "563492ad6f91700001000001231b4ca641d54a5282bae2b44e046189"
+    }});
+    const images = await response.json();
+    let index = Math.floor(Math.random() * images.photos.length);
+    return img.src = images.photos[index].src.landscape; 
+  }
+  catch (err) {
+		console.error(err.message);
+        throw new Error(err);
+    }    
 }
-
-export default createBackground;
