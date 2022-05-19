@@ -1,14 +1,12 @@
 import './style.css';
-//import  createBackground from './modules/background';
-import {changeTempValues, generateWeather} from './modules/generateWeather';
+import { displayWeatherData, eventListeners } from './modules/generateWeather';
+import { createBackground } from './modules/background';
 
 //createBackground();
-generateWeather("melbourne, au");
 
-document.addEventListener("click", (e) => {
-    if (e.target.tagName == "LABEL") {
-        changeTempValues();
-    }
-})
+     
+displayWeatherData("melbourne, au");
+eventListeners();
+
 
 
