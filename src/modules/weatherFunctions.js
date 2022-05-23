@@ -20,7 +20,7 @@ export const changeTempSymbol = () => {
 
 const fetchWeatherData = async (location) => {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=7c75eecbdb2e509cfc5858fb61aa0fc5`, {mode: 'cors'});
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.WEA_API_KEY}`, {mode: 'cors'});
         const weatherData = await response.json();
         return weatherData;
     }
