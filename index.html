@@ -8,42 +8,42 @@
     <script src="https://kit.fontawesome.com/45b328020b.js" crossorigin="anonymous"></script>
     <title>Weather App</title>
 </head>
-<body>
-    <form class="location-form">
-        <div class="search-container">
-            <button type="button" id="submit">
+<body class="flex text-white overflow-hidden font-sans">
+    <form class="location-form  mt-6 top-[5%] w-full flex items-center justify-center absolute z-[11] sm:mt-2">
+        <div class="search-container w-40 h-8 mt-3 flex rounded-md bg-white opacity-[70%] sm:w-auto sm:h-auto sm:mt-auto">
+            <button type="button" id="submit" class="z-0 pl-4 cursor-pointer bg-white opacity-[70%] rounded-md">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <input type="text" id="search" placeholder="City Name">
+            <input type="text" class="bg-white opacity-[70%] z-[6] w-[80%] p-2 border-none rounded-sm focus:outline-none focus:ring focus:border-blue-500 text-base id="search" placeholder="City Name">
         </div>
     </form>
-    <div class="weather-container mx-auto bg-green-500">
-        <h1 class="city-name text-3xl font-bold underline"></h1>
-        <div class="weather-data"> 
-            <span class="weather"></span>
-            <div class="temp-data">
-                <span class="temperature"></span>
-                <div class="temp-min-max">
-                    <div class="temp-min-container">
+    <div class="weather-container flex h-[40em] w-full md:pt-[15em] ld:mt-[15em] sm:top-[25%] sm:w-full flex-col items-center justify-center relative z-[5]">
+        <h1 class="city-name text-3xl sm:text-5xl md:text-7xl font-bold m-[0.5em]"></h1>
+        <div class="weather-data flex flex-col justify-center items-center"> 
+            <span class="weather sm:text-3xl md:text-4xl mb-4"></span>
+            <div class="temp-data flex flex-col justify-center items-center">
+                <span class="temperature text-4xl sm:text-6xl"></span>
+                <div class="temp-min-max flex text-1xl sm:text-3xl gap-6">
+                    <div class="temp-min-container flex items-center justify-center">
                         <span>↓</span>
                         <span class="temp-min"></span>
                     </div>
-                    <div class="temp-max-container">
+                    <div class="temp-max-container flex items-center justify-center">
                         <span>↑</span>
                         <span class="temp-max"></span>
                     </div>
                 </div>
-                <div class="unit-switch-container">
-                    <input type="checkbox" name="switch" id="switch">
-                    <label id="unit-switch"for="switch"></label>
+                <div class="unit-switch-container flex justify-center items-center mt-12 mb-6 md:w-24 md:h-12 md:mt-28 ld:mb-12">
+                    <input class="w-0 h-0 invisible" type="checkbox" name="switch" id="switch">
+                    <label class="after:w-[40%] after:h-[65%] after:top-[0.3em] after:left-[0.3em] block w-12 h-7 md:w-20 md:after:top-[0.5em] md:after:left-[0.3em] md:after:w-[2em] md:after:h-[2em] md:h-12 bg-white rounded-full relative cursor-pointer duration-500 " id="unit-switch" for="switch"></label>
                 </div>
-                <span class="unit">°C / °F</span>
+                <span class="unit flex items-center justify-center mt-2 text-2xl">°C / °F</span>
             </div>
         </div>
     </div>
-    <a id="attribution" href="https://www.pexels.com">Photos provided by Pexels</a>
-    <div class="background-container">
-        <img class="background-image" src="#"> 
+    <a id="attribution" class="absolute z-10 text-white ml-4 mt-2" href="https://www.pexels.com">Photos provided by Pexels</a>
+    <div class="background-container  bg-black w-[200%] h-[200%] z-0 fixed top-[-50%] left-[-50%]">
+        <img class="background-image absolute top-0 left-0 right-0 bottom-0 m-auto min-w-[50%] min-h-[50%] z-[1] opacity-[40%]" src="#"> 
     </div>
 </body>
 </html>
