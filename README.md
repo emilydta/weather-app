@@ -11,6 +11,7 @@ Completing this project has taught me:
   - How to write asynchronous code.
   - How to use promises and async/await.
   - How to use API's and make API calls.
+  - How to setup .env files to hide sensitive information.
   - How to setup and use Tailwind CSS with Webpack and Vanilla JS.
   
 
