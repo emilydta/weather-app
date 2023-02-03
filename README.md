@@ -11,8 +11,9 @@ Completing this project has taught me:
   - How to write asynchronous code.
   - How to use promises and async/await.
   - How to use API's and make API calls.
-  - How to setup .env files to hide sensitive information.
+  - How to use env files to store sensitive data.
   - How to setup and use Tailwind CSS with Webpack and Vanilla JS.
+  - TypeScript setup and usage with Webpack.
   
 
 Live version: https://emilydta.github.io/weather-app/
