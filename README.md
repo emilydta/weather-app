@@ -11,6 +11,7 @@ Completing this project has taught me:
   - How to write asynchronous code.
   - How to use promises and async/await.
   - How to use API's and make API calls.
+  - TypeScript setup and usage with Webpack.
   
 
 Live version: https://emilydta.github.io/weather-app/
