@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   devtool: 'inline-source-map',
   output: {
     filename: 'main.js',
@@ -12,6 +12,9 @@ module.exports = {
   plugins: [
     new Dotenv()
   ],
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
   module: {
     rules: [
       {
@@ -21,6 +24,11 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        include: path.resolve(__dirname, 'src'),
       },
     ],
   },

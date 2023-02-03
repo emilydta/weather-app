@@ -1,8 +1,8 @@
 import { displayWeatherAndBackground } from "./display";
 
 export const searchFunction = () => {
-    const search = document.getElementById('search');
-    const submit = document.getElementById('submit');
+    const search = document.getElementById('search') as HTMLInputElement;
+    const submit = document.getElementById('submit') as HTMLButtonElement;
 
     submit.addEventListener("click", () => {
         if (!search.value) {
@@ -21,8 +21,8 @@ export const searchFunction = () => {
     });
 
     //prevent default form submit behaviour
-    document.querySelector(".location-form").onsubmit = function(e) {
+    let locationForm = document.querySelector(".location-form") as HTMLFormElement;
+    locationForm.onsubmit = function(e) {
         e.preventDefault();
     }
-
 }
